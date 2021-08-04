@@ -7,7 +7,7 @@ const App = () => {
 
   useEffect(() => {
     fetchQuestions() 
-      .then(data => console.log('data', data))
+      .then(data => setQuestions([data]))
       .catch(error => console.log(error))
   }, [])
 
