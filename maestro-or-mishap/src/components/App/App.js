@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import './App.css';
 import { fetchQuestions } from '../../apiCalls';
 
@@ -16,8 +17,7 @@ const App = () => {
       <header className="App-header">
         <h1>Maestro or Mishap</h1>
       </header>
-      <section>
-      </section>
+      <QuestionContainer questions={questions}/>
     </main>
   );
 }
