@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { fetchQuestions } from '../../apiCalls';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    fetchQuestions() 
+      .then(data => console.log('data', data))
+      .catch(error => console.log(error))
+  }, [])
+
   return (
-    <div className="App">
+    <main className="App">
       <header className="App-header">
-        <p>hello</p>
+        <h1>Maestro or Mishap</h1>
       </header>
-    </div>
+      <section>
+      </section>
+    </main>
   );
 }
 
