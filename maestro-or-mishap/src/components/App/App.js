@@ -1,6 +1,9 @@
+import React, { useState } from 'react';
 import './App.css';
+import { fetchQuestions } from '../../apiCalls';
 
-function App() {
+const App = () => {
+  const [questions, setQuestions] = useState([]);
   return (
     <div className="App">
       <header className="App-header">
