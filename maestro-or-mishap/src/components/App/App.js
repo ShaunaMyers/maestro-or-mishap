@@ -9,6 +9,7 @@ const App = () => {
   useEffect(() => {
     fetchQuestions() 
       .then(data => setQuestions([data]))
+      // .then(data => console.log('data', data))
       .catch(error => console.log(error))
   }, [])
 
