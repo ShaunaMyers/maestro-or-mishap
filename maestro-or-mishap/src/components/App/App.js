@@ -8,8 +8,8 @@ const App = () => {
 
   useEffect(() => {
     fetchQuestions() 
-      .then(data => setQuestions([data]))
-      // .then(data => console.log('data', data))
+      // .then(data => console.log('setQuestions', data.results))
+      .then(data => setQuestions(data.results))
       .catch(error => console.log(error))
   }, [])
 
