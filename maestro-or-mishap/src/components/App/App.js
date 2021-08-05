@@ -1,12 +1,25 @@
+import React, { useEffect, useState } from 'react';
+import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import './App.css';
+import { fetchQuestions } from '../../apiCalls';
 
-function App() {
+const App = () => {
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    fetchQuestions() 
+      // .then(data => console.log('setQuestions', data.results))
+      .then(data => setQuestions(data.results))
+      .catch(error => console.log(error))
+  }, [])
+
   return (
-    <div className="App">
+    <main className="App">
       <header className="App-header">
-        <p>hello</p>
+        <h1>Maestro or Mishap</h1>
       </header>
-    </div>
+      <QuestionContainer questions={questions}/>
+    </main>
   );
 }
 
