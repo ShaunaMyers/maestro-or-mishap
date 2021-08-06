@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import './App.css';
 import { fetchQuestions } from '../../apiCalls';
@@ -18,7 +19,11 @@ const App = () => {
       <header className="App-header">
         <h1>Maestro or Mishap</h1>
       </header>
-      <QuestionContainer questions={questions}/>
+      <Route exact path='/' render={() => {
+        return(
+          <Greeting/>
+        )
+      }}/>
     </main>
   );
 }
