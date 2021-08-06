@@ -3,6 +3,7 @@ import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import './App.css';
 import { fetchQuestions } from '../../apiCalls';
+import Greeting from '../Greeting/Greeting';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -23,6 +24,11 @@ const App = () => {
         return(
           <Greeting/>
         )
+      }}/>
+      <Route exact path='/question' render={() => {
+        return(
+          <QuestionContainer questions={questions}/>
+          )
       }}/>
     </main>
   );
