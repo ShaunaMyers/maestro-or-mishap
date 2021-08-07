@@ -1,7 +1,6 @@
 
 
 const QuestionCard = ({question, correctAnswer, incorrectAnswer}) => {
-    console.log('what is this?', incorrectAnswer)
     return(
         <article>
             <h2>{question}</h2>
