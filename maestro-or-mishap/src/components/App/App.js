@@ -7,7 +7,7 @@ import Greeting from '../Greeting/Greeting';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState({});
+  // const [currentQuestion, setCurrentQuestion] = useState({});
 
   useEffect(() => {
     fetchQuestions() 
@@ -16,17 +16,17 @@ const App = () => {
       .catch(error => console.log(error))
   }, [])
 
-  const handleDisplayQuestion = (index) => {
-    // When user clicks Greeting button this func fires
-      // Pass in an index number
-    // We start with question at index num in questions array
-    setCurrentQuestion(questions[index])
-    // .then(console.log('curr quest', currentQuestion))
-    console.log('curr quest', currentQuestion)
-    // So, we pass that question into our QuestionContainer
-    // From there, it displays that question through QuestionCard
-    // Need to have a button on questionCard to click to get to the next question
-  }
+  // const handleDisplayQuestion = (index) => {
+  //   // When user clicks Greeting button this func fires
+  //     // Pass in an index number
+  //   // We start with question at index num in questions array
+  //   setCurrentQuestion(questions[index])
+  //   // .then(console.log('curr quest', currentQuestion))
+  //   console.log('curr quest', currentQuestion)
+  //   // So, we pass that question into our QuestionContainer
+  //   // From there, it displays that question through QuestionCard
+  //   // Need to have a button on questionCard to click to get to the next question
+  // }
 
   return (
     <main className="App">
@@ -35,12 +35,14 @@ const App = () => {
       </header>
       <Route exact path='/' render={() => {
         return(
-          <Greeting handleDisplayQuestion={handleDisplayQuestion}/>
+          <Greeting />
         )
       }}/>
-      <Route exact path='/question' render={() => {
+      <Route exact path='/question/:num' render={({ match }) => {
+        let index = match.params.num;
+        let foundQuestion = questions[index]
         return(
-          <QuestionContainer questions={questions}/>
+          <QuestionContainer question={foundQuestion}/>
           )
       }}/>
     </main>
