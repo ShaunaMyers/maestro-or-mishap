@@ -12,11 +12,14 @@ const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswer}) 
         console.log('current Index plus 1', currentIndex + 1)
         // currentIndex < 12 ? setNextIndex(currentIndex + 1) : 
         // setGameOver(true)
-        if (currentIndex < 12) {
+        if (currentIndex < 11) {
             const indexSummed = (currentIndex + 1);
             console.log(indexSummed, 'index summed')
             setNextIndex(indexSummed)
             console.log('setNextIndex', setNextIndex)
+        } else {
+            setNextIndex(11)
+            setGameOver(true)
         }
     }
 
@@ -27,9 +30,12 @@ const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswer}) 
             <p>{incorrectAnswer[0]}</p>
             <p>{incorrectAnswer[1]}</p>
             <p>{incorrectAnswer[2]}</p>
-            {gameOver === false &&
-            <Link to={`/question/${nextIndex}`}><button onClick={formatIndex}>Next Question</button></Link> 
-            // : <Link to={`/question/${nextIndex}`}><button onClick={formatIndex}>Next Question</button></Link>
+            {gameOver === false ?
+            <Link to={`/question/${nextIndex}`}><button onClick={formatIndex}>Next Question</button></Link> :
+            <Link to={'/'}>
+                <p>Game Over</p>
+                <button>Return Home</button>
+            </Link>
             }
             
         </article>
