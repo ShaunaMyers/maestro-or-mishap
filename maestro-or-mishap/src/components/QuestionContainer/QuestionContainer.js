@@ -1,11 +1,12 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
 
-const QuestionContainer = ({ question, index }) => {
+const QuestionContainer = ({ question, currentIndex }) => {
+    console.log('question question', question)
 
     return (
         <section>
             <QuestionCard 
-            index={index}
+            currentIndex={currentIndex}
             question={question.question} 
             correctAnswer={question.correct_answer} 
             incorrectAnswer={question.incorrect_answers} />
