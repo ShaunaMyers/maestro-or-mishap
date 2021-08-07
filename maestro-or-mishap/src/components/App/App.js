@@ -20,18 +20,15 @@ const App = () => {
         <h1>Maestro or Mishap</h1>
       </header>
       <Route exact path='/' render={() => {
-        console.log('first questions', questions)
         return(
           <Greeting />
         )
       }}/>
       <Route exact path='/question/:num' render={({ match }) => {
         let index = parseInt(match.params.num);
-        console.log(typeof index, 'index')
         let foundQuestion = questions[index]
         console.log("FOUND", questions)
         return(
-          // <p>this works for now</p>
           <QuestionContainer question={foundQuestion} currentIndex={index}/>
           )
       }}/>
