@@ -6,7 +6,7 @@ const Greeting = ({handleDisplayQuestion}) => {
             <h2>Welcome!</h2>
             <p>Please try your hand at our music trivia game and see if you are a Maestro or if you land in Mishap!</p>
             {/* <button onClick={() => handleDisplayQuestion(0)}>Start Game!</button> */}
-            <Link exact to='/question/0' activeClassName='greeting-btn-clicked' className='greeting-btn'>Start Game!</Link>
+            <Link to='/question/0'><button>Start Game!</button></Link>
         </section>
     )
 }
