@@ -28,7 +28,7 @@ const App = () => {
         let index = match.params.num;
         let foundQuestion = questions[index]
         return(
-          <QuestionContainer question={foundQuestion}/>
+          <QuestionContainer question={foundQuestion} index={index}/>
           )
       }}/>
     </main>
