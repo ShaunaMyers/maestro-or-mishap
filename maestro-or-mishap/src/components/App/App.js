@@ -7,6 +7,7 @@ import Greeting from '../Greeting/Greeting';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState({});
 
   useEffect(() => {
     fetchQuestions() 
@@ -15,6 +16,18 @@ const App = () => {
       .catch(error => console.log(error))
   }, [])
 
+  const handleDisplayQuestion = (index) => {
+    // When user clicks Greeting button this func fires
+      // Pass in an index number
+    // We start with question at index num in questions array
+    setCurrentQuestion(questions[index])
+    // .then(console.log('curr quest', currentQuestion))
+    console.log('curr quest', currentQuestion)
+    // So, we pass that question into our QuestionContainer
+    // From there, it displays that question through QuestionCard
+    // Need to have a button on questionCard to click to get to the next question
+  }
+
   return (
     <main className="App">
       <header className="App-header">
@@ -22,7 +35,7 @@ const App = () => {
       </header>
       <Route exact path='/' render={() => {
         return(
-          <Greeting/>
+          <Greeting handleDisplayQuestion={handleDisplayQuestion}/>
         )
       }}/>
       <Route exact path='/question' render={() => {
