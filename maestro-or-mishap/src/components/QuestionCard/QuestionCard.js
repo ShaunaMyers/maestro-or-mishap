@@ -1,17 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswer}) => {
+const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswers}) => {
     console.log('current index', currentIndex)
     console.log('questionCard question', question)
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
+    const [allAnswers, setAllAnswers] = useState([...incorrectAnswers, correctAnswer]);
+
+    useEffect(() => {
+        // setAllAnswers([...incorrectAnswers, correctAnswer])
+        formatAnswers()
+    }, [])
+
+    const formatAnswers = () => {
+        // setAllAnswers([...incorrectAnswers, correctAnswer])
+        let mixedAnswers = []
+        allAnswers.forEach(answer => {
+            let randomItem = allAnswers[Math.floor(Math.random()*allAnswers.length)];
+            console.log(randomItem, 'random item')
+            mixedAnswers.push(randomItem)
+        })
+        setAllAnswers(mixedAnswers)
+    }
     
     const formatIndex = () => {
         console.log('current Index plus 1', currentIndex + 1)
-        // currentIndex < 12 ? setNextIndex(currentIndex + 1) : 
-        // setGameOver(true)
         if (currentIndex < 11) {
             const indexSummed = (currentIndex + 1);
             console.log(indexSummed, 'index summed')
@@ -29,23 +44,28 @@ const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswer}) 
             <form>
                 <div>
                     <input type="checkbox"/>
-                    <p>{correctAnswer}</p>
+                    <p>{allAnswers[0]}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{incorrectAnswer}</p>
+                    <p>{allAnswers[1]}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{incorrectAnswer}</p>
+                    <p>{allAnswers[2]}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{incorrectAnswer}</p>
+                    <p>{allAnswers[3]}</p>
                 </div>
             </form>
             {gameOver === false ?
-            <Link to={`/question/${nextIndex}`}><button onClick={formatIndex}>Next Question</button></Link> :
+            <Link to={`/question/${nextIndex}`}>
+                <button onClick={() => {
+                formatIndex()
+                formatAnswers()
+                }}
+            >Next Question</button></Link> :
             <Link to={'/'}>
                 <p>Game Over</p>
                 <button>Return Home</button>
