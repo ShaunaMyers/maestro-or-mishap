@@ -1,11 +1,20 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const QuestionCard = ({index, question, correctAnswer, incorrectAnswer}) => {
+const QuestionCard = ({currentIndex, question, correctAnswer, incorrectAnswer}) => {
+    console.log('incorrect answer', incorrectAnswer)
 
     const [gameOver, setGameOver] = useState(false);
+    const [nextIndex, setNextIndex] = useState(0);
     
     const formatIndex = () => {
-        index < 12 ? index + 1 : setGameStatus(true);
+        if (currentIndex < 12) {
+            const indexSum = currentIndex + 1;
+            setNextIndex(indexSum);
+            // return nextIndex;
+        } else {
+            setGameOver(true);
+        }
     }
 
     return(
@@ -15,7 +24,7 @@ const QuestionCard = ({index, question, correctAnswer, incorrectAnswer}) => {
             <p>{incorrectAnswer[0]}</p>
             <p>{incorrectAnswer[1]}</p>
             <p>{incorrectAnswer[2]}</p>
-            <Link to={`/question/${index + 1}`}><button>Next Question</button></Link>
+            <Link to={`/question/${nextIndex}`}><button onClick={formatIndex}>Next Question</button></Link>
         </article>
     )
 }
