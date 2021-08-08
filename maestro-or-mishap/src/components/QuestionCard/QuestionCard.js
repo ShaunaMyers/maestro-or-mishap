@@ -7,14 +7,8 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
-    // const [selectedAnswer, setSelectedAnswer] = useState('');
     const [answerFeedback, setAnswerFeedback] = useState('');
-    // const [checked, setChecked] = useState(false)
-    // const [answerEvaluated, setAnswerEvaluated] = useState(false);
-    // let shuffledAnswers;
 
-    
-    const formatIndex = () => {
         if (currentIndex < 11) {
             const indexSummed = (currentIndex + 1);
             setNextIndex(indexSummed)
@@ -53,24 +47,18 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
                 <div>
                     <input 
                     onChange={() => evaluateAnswer(allAnswers[1])} 
-                    // value={selectedAnswer}
-                    // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[1])}</p>
                 </div>
                 <div>
                     <input 
                     onChange={() => evaluateAnswer(allAnswers[2])} 
-                    // value={selectedAnswer}
-                    // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[2])}</p>
                 </div>
                 <div>
                     <input 
                     onChange={() => evaluateAnswer(allAnswers[3])} 
-                    // value={selectedAnswer}
-                    // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[3])}</p>
                 </div>
@@ -79,7 +67,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <Link to={`/question/${nextIndex}`}>
                 <button className="next-question-btn" onClick={() => {
                 formatIndex()
-                // formatAnswers()
                 }}
             >Next Question</button></Link> :
             <Link to={'/'}>
