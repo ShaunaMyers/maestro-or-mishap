@@ -17,7 +17,7 @@ const App = () => {
   return (
     <main className="App">
       <header className="App-header">
-        <h1>Maestro or Mishap</h1>
+        <h1>Are you the Maestro?</h1>
       </header>
       <Route exact path='/' render={() => {
         return(
