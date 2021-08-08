@@ -1,10 +1,11 @@
-article {
+.question-card {
   align-items: center;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
 }
 
-h2 {
+h3 {
   padding: 3% 10%;
   text-align: center;
 }
