@@ -1,4 +1,5 @@
-import { Route, NavLink, Switch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './Greeting.css';
 
 const Greeting = ({handleDisplayQuestion}) => {
     return(
