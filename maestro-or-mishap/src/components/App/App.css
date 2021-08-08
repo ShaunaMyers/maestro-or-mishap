@@ -17,3 +17,10 @@ header {
 h1 {
   color: #efa600;
 }
+
+article {
+  background-color: #dfeefb;
+  opacity: 0.7;
+  padding-bottom: 5%;
+  width: 100%;
+}
