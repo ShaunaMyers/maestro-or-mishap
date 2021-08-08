@@ -75,7 +75,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             </form>
             {!gameOver ?
             <Link to={`/question/${nextIndex}`}>
-                <button onClick={() => {
+                <button className="next-question-btn" onClick={() => {
                 formatIndex()
                 // formatAnswers()
                 }}

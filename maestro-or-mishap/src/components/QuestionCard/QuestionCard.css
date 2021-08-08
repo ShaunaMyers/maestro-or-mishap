@@ -15,10 +15,6 @@ div {
   align-items: center;
   display: flex;
 }
-/* 
-input {
-  margin-right: 5%;
-} */
 
 p {
   display: flex;
@@ -26,4 +22,13 @@ p {
   font-weight: bold;
   margin-left: 5%;
   width: 200px;
+}
+
+.next-question-btn {
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 4%;
+  width: 130px;
 }
