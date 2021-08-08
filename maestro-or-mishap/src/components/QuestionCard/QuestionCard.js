@@ -7,6 +7,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState('');
     let shuffledAnswers;
 
     const formatAnswers = () => {
