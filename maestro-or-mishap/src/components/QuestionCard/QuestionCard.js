@@ -9,6 +9,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
 
+    const formatIndex = () => {
         if (currentIndex < 11) {
             const indexSummed = (currentIndex + 1);
             setNextIndex(indexSummed)
@@ -39,8 +40,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
                 <div>
                     <input 
                     onChange={() => evaluateAnswer(allAnswers[0])} 
-                    // value={selectedAnswer}
-                    // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[0])}</p>
                 </div>
