@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, NavLink, Switch, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import './App.css';
 import { fetchQuestions } from '../../apiCalls';
