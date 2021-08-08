@@ -40,8 +40,8 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     }
 
     return(
-        <article>
-            <h2>{question}</h2>
+        <article className="question-card">
+            <h3>{question}</h3>
             <form>
                 <div>
                     <input 
