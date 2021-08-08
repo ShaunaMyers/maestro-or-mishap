@@ -12,16 +12,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     // const [answerEvaluated, setAnswerEvaluated] = useState(false);
     let shuffledAnswers;
 
-    // const formatAnswers = () => {
-  
-    //     let unshuffled = allAnswers;
-    
-    //     shuffledAnswers = unshuffled
-    //     .map((value) => ({ value, sort: Math.random() }))
-    //     .sort((a, b) => a.sort - b.sort)
-    //     .map(({ value }) => value)
-    //     return shuffledAnswers[0]
-    // }
     
     const formatIndex = () => {
         if (currentIndex < 11) {
@@ -33,6 +23,14 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         }
     }
 
+    const cleanData = (string) => {
+        let re1 = /&quot;/gi;
+        let re2 = /&#039;/gi;
+        let newstr1 = string.replace(re1, '"')
+        let newstr2 = newstr1.replace(re2,"'")
+        return newstr2;  
+    }
+
     const handleClick = (answer) => {
         setChecked(!checked)
         setSelectedAnswer(answer);
@@ -41,7 +39,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     return(
         <article className="question-card">
-            <h3>{question}</h3>
+            <h3>{cleanData(question)}</h3>
             <form>
                 <div>
                     <input 
@@ -49,28 +47,28 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
                     value={selectedAnswer}
                     checked={checked}
                     type="checkbox"/>
-                    <p>{allAnswers[0]}</p>
+                    <p>{cleanData(allAnswers[0])}</p>
                 </div>
                 <div>
                     <input 
                     onChange={() => handleClick(allAnswers[1])} 
                     value={selectedAnswer}
                     type="checkbox"/>
-                    <p>{allAnswers[1]}</p>
+                    <p>{cleanData(allAnswers[1])}</p>
                 </div>
                 <div>
                     <input 
                     onChange={() => handleClick(allAnswers[2])} 
                     value={selectedAnswer}
                     type="checkbox"/>
-                    <p>{allAnswers[2]}</p>
+                    <p>{cleanData(allAnswers[2])}</p>
                 </div>
                 <div>
                     <input 
                     onChange={() => handleClick(allAnswers[3])} 
                     value={selectedAnswer}
                     type="checkbox"/>
-                    <p>{allAnswers[3]}</p>
+                    <p>{cleanData(allAnswers[3])}</p>
                 </div>
             </form>
             {!gameOver ?
