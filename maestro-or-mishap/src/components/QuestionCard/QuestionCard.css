@@ -4,6 +4,11 @@ article {
   flex-direction: column;
 }
 
+h2 {
+  padding: 3% 10%;
+  text-align: center;
+}
+
 div {
   align-items: center;
   display: flex;
