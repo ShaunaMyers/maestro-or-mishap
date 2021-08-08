@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
-    // console.log('current index', currentIndex)
-    // console.log('questionCard question', question)
+   
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
-    // const [allAnswers, setAllAnswers] = useState([]);
+    let shuffledAnswers;
+    
+
+    // console.log(allAnswers, 'all answers in state')
 
     // useEffect(() => {
     //     console.log('Getting in here?')
@@ -20,7 +22,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     //     setAllAnswers(shuffled)
     // }, [])
 
-    // const formatAnswers = () => {
+    const formatAnswers = () => {
     //     // setAllAnswers([...incorrectAnswers, correctAnswer])
     //     // let mixedAnswers = []
     //     // let indexNumbers = [0, 1, 2, 3]
@@ -41,15 +43,15 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     //     // setAllAnswers(mixedAnswers)
     //     console.log('Getting in here?')
-    //     let unshuffled = [...incorrectAnswers, correctAnswer]
+        let unshuffled = allAnswers;
     
-    //     let shuffled = unshuffled
-    //     .map((value) => ({ value, sort: Math.random() }))
-    //     .sort((a, b) => a.sort - b.sort)
-    //     .map(({ value }) => value)
-    //     setAllAnswers(shuffled)
-    //     return allAnswers[0]
-    // }
+        shuffledAnswers = unshuffled
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+        // setAllAnswers(shuffled)
+        return shuffledAnswers[0]
+    }
     
     const formatIndex = () => {
         // console.log('current Index plus 1', currentIndex + 1)
@@ -70,19 +72,19 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <form>
                 <div>
                     <input type="checkbox"/>
-                    <p>{allAnswers[0]}</p>
+                    <p>{formatAnswers()}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{allAnswers[1]}</p>
+                    <p>{shuffledAnswers[1]}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{allAnswers[2]}</p>
+                    <p>{shuffledAnswers[2]}</p>
                 </div>
                 <div>
                     <input type="checkbox"/>
-                    <p>{allAnswers[3]}</p>
+                    <p>{shuffledAnswers[3]}</p>
                 </div>
             </form>
             {gameOver === false ?
