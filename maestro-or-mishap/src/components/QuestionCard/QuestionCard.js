@@ -7,7 +7,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState('');
+    // const [selectedAnswer, setSelectedAnswer] = useState('');
     const [answerFeedback, setAnswerFeedback] = useState('');
     // const [checked, setChecked] = useState(false)
     // const [answerEvaluated, setAnswerEvaluated] = useState(false);
@@ -32,15 +32,8 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         return newstr2;  
     }
 
-    const handleClick = (answer) => {
-        // setChecked(!checked)
-        setSelectedAnswer(answer);
-        console.log(setSelectedAnswer, 'setSelectedAnswer')
-        evaluateAnswer()
-    }
-
-    const evaluateAnswer = () => {
-        selectedAnswer !== correctAnswer ? setAnswerFeedback('Oooh, we\'re sorry! That\'s the wrong answer.') :
+    const evaluateAnswer = (answer) => {
+        answer !== correctAnswer ? setAnswerFeedback('Oooh, we\'re sorry! That\'s the wrong answer.') :
         setAnswerFeedback('That is correct! What, are you some kind of genius?')
     }
 
@@ -51,32 +44,32 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <form>
                 <div>
                     <input 
-                    onChange={() => handleClick(allAnswers[0])} 
-                    value={selectedAnswer}
+                    onChange={() => evaluateAnswer(allAnswers[0])} 
+                    // value={selectedAnswer}
                     // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[0])}</p>
                 </div>
                 <div>
                     <input 
-                    onChange={() => handleClick(allAnswers[1])} 
-                    value={selectedAnswer}
+                    onChange={() => evaluateAnswer(allAnswers[1])} 
+                    // value={selectedAnswer}
                     // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[1])}</p>
                 </div>
                 <div>
                     <input 
-                    onChange={() => handleClick(allAnswers[2])} 
-                    value={selectedAnswer}
+                    onChange={() => evaluateAnswer(allAnswers[2])} 
+                    // value={selectedAnswer}
                     // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[2])}</p>
                 </div>
                 <div>
                     <input 
-                    onChange={() => handleClick(allAnswers[3])} 
-                    value={selectedAnswer}
+                    onChange={() => evaluateAnswer(allAnswers[3])} 
+                    // value={selectedAnswer}
                     // checked={checked}
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[3])}</p>
