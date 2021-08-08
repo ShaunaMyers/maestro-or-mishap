@@ -36,6 +36,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     const handleClick = (answer) => {
         setChecked(!checked)
         setSelectedAnswer(answer);
+        console.log(setSelectedAnswer, 'setSelectedAnswer')
     }
 
     return(
@@ -43,22 +44,32 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <h2>{question}</h2>
             <form>
                 <div>
-                    <input onChange={() => handleClick(allAnswers[0])} 
-                    checked={checked}
+                    <input 
+                    onChange={() => handleClick(allAnswers[0])} 
                     value={selectedAnswer}
+                    checked={checked}
                     type="checkbox"/>
                     <p>{allAnswers[0]}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input 
+                    onChange={() => handleClick(allAnswers[1])} 
+                    value={selectedAnswer}
+                    type="checkbox"/>
                     <p>{allAnswers[1]}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input 
+                    onChange={() => handleClick(allAnswers[2])} 
+                    value={selectedAnswer}
+                    type="checkbox"/>
                     <p>{allAnswers[2]}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input 
+                    onChange={() => handleClick(allAnswers[3])} 
+                    value={selectedAnswer}
+                    type="checkbox"/>
                     <p>{allAnswers[3]}</p>
                 </div>
             </form>
