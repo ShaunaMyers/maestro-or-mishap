@@ -35,19 +35,19 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <h2>{question}</h2>
             <form>
                 <div>
-                    <input type="checkbox"/>
+                    <input onClick={setSelectedAnswer(shuffledAnswers[0])} type="checkbox"/>
                     <p>{formatAnswers()}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input onClick={setSelectedAnswer(shuffledAnswers[1])}  type="checkbox"/>
                     <p>{shuffledAnswers[1]}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input onClick={setSelectedAnswer(shuffledAnswers[2])}  type="checkbox"/>
                     <p>{shuffledAnswers[2]}</p>
                 </div>
                 <div>
-                    <input type="checkbox"/>
+                    <input onClick={setSelectedAnswer(shuffledAnswers[3])}  type="checkbox"/>
                     <p>{shuffledAnswers[3]}</p>
                 </div>
             </form>
