@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
+import './QuestionCard.css';
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
    
