@@ -7,19 +7,21 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
+    const [checked, setChecked] = useState(false)
     const [selectedAnswer, setSelectedAnswer] = useState('');
+    // const [answerEvaluated, setAnswerEvaluated] = useState(false);
     let shuffledAnswers;
 
-    const formatAnswers = () => {
+    // const formatAnswers = () => {
   
-        let unshuffled = allAnswers;
+    //     let unshuffled = allAnswers;
     
-        shuffledAnswers = unshuffled
-        .map((value) => ({ value, sort: Math.random() }))
-        .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value)
-        return shuffledAnswers[0]
-    }
+    //     shuffledAnswers = unshuffled
+    //     .map((value) => ({ value, sort: Math.random() }))
+    //     .sort((a, b) => a.sort - b.sort)
+    //     .map(({ value }) => value)
+    //     return shuffledAnswers[0]
+    // }
     
     const formatIndex = () => {
         if (currentIndex < 11) {
@@ -31,31 +33,40 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         }
     }
 
+    const handleClick = (answer) => {
+        setChecked(!checked)
+        setSelectedAnswer(answer);
+    }
+
     return(
         <article>
             <h2>{question}</h2>
             <form>
                 <div>
-                    <input onClick={setSelectedAnswer(shuffledAnswers[0])} type="checkbox"/>
-                    <p>{formatAnswers()}</p>
+                    <input onChange={() => handleClick(allAnswers[0])} 
+                    checked={checked}
+                    value={selectedAnswer}
+                    type="checkbox"/>
+                    <p>{allAnswers[0]}</p>
                 </div>
                 <div>
-                    <input onClick={setSelectedAnswer(shuffledAnswers[1])}  type="checkbox"/>
-                    <p>{shuffledAnswers[1]}</p>
+                    <input type="checkbox"/>
+                    <p>{allAnswers[1]}</p>
                 </div>
                 <div>
-                    <input onClick={setSelectedAnswer(shuffledAnswers[2])}  type="checkbox"/>
-                    <p>{shuffledAnswers[2]}</p>
+                    <input type="checkbox"/>
+                    <p>{allAnswers[2]}</p>
                 </div>
                 <div>
-                    <input onClick={setSelectedAnswer(shuffledAnswers[3])}  type="checkbox"/>
-                    <p>{shuffledAnswers[3]}</p>
+                    <input type="checkbox"/>
+                    <p>{allAnswers[3]}</p>
                 </div>
             </form>
-            {gameOver === false ?
+            {!gameOver ?
             <Link to={`/question/${nextIndex}`}>
                 <button onClick={() => {
                 formatIndex()
+                // formatAnswers()
                 }}
             >Next Question</button></Link> :
             <Link to={'/'}>
