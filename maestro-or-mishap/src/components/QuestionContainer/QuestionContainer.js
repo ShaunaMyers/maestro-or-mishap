@@ -9,7 +9,8 @@ const QuestionContainer = ({ question, currentIndex }) => {
             currentIndex={currentIndex}
             question={question.question} 
             correctAnswer={question.correct_answer} 
-            incorrectAnswers={question.incorrect_answers} />
+            // incorrectAnswers={question.incorrect_answers} 
+            allAnswers={[...question.incorrect_answers, question.correct_answer]}/>
         </section>
     )
 }
