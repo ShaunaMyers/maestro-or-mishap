@@ -7,59 +7,22 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
     let shuffledAnswers;
-    
-
-    // console.log(allAnswers, 'all answers in state')
-
-    // useEffect(() => {
-    //     console.log('Getting in here?')
-    //     let unshuffled = [...incorrectAnswers, correctAnswer]
-    
-    //     let shuffled = unshuffled
-    //     .map((value) => ({ value, sort: Math.random() }))
-    //     .sort((a, b) => a.sort - b.sort)
-    //     .map(({ value }) => value)
-    //     setAllAnswers(shuffled)
-    // }, [])
 
     const formatAnswers = () => {
-    //     // setAllAnswers([...incorrectAnswers, correctAnswer])
-    //     // let mixedAnswers = []
-    //     // let indexNumbers = [0, 1, 2, 3]
-
-    //     // allAnswers.forEach(answer => {
-    //     //     let randomIndex;
-    //     //     if (indexNumbers.length > 1) {
-    //     //         randomIndex = indexNumbers[Math.floor(Math.random()*indexNumbers.length)];
-    //     //         console.log(randomIndex, 'random index #')
-    //     //         indexNumbers.splice(randomIndex, 1)
-    //     //         console.log(indexNumbers, 'index number array')
-    //     //     } else {
-    //     //         randomIndex = indexNumbers[0];
-    //     //         console.log(randomIndex, 'last random index')
-    //     //     }
-    //     //     mixedAnswers.push(allAnswers[randomIndex])
-    //     // })
-
-    //     // setAllAnswers(mixedAnswers)
-    //     console.log('Getting in here?')
+  
         let unshuffled = allAnswers;
     
         shuffledAnswers = unshuffled
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
-        // setAllAnswers(shuffled)
         return shuffledAnswers[0]
     }
     
     const formatIndex = () => {
-        // console.log('current Index plus 1', currentIndex + 1)
         if (currentIndex < 11) {
             const indexSummed = (currentIndex + 1);
-            // console.log(indexSummed, 'index summed')
             setNextIndex(indexSummed)
-            // console.log('setNextIndex', setNextIndex)
         } else {
             setNextIndex(11)
             setGameOver(true)
@@ -91,7 +54,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <Link to={`/question/${nextIndex}`}>
                 <button onClick={() => {
                 formatIndex()
-                // formatAnswers()
                 }}
             >Next Question</button></Link> :
             <Link to={'/'}>
