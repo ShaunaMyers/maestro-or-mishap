@@ -1,6 +1,6 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
 
-const QuestionContainer = ({ question, currentIndex }) => {
+const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
     console.log('questionContainer quest.', question)
 
     const formatAnswers = () => {
@@ -20,7 +20,9 @@ const QuestionContainer = ({ question, currentIndex }) => {
             currentIndex={currentIndex}
             question={question.question} 
             correctAnswer={question.correct_answer} 
-            allAnswers={formatAnswers()}/>
+            allAnswers={formatAnswers()}
+            addToFinalScore={addToFinalScore}
+            />
         </section>
     )
 }
