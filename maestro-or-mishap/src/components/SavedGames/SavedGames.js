@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import './SavedGames.css';
 
 const SavedGames = ({finalScore}) => {
 
@@ -24,7 +25,7 @@ const SavedGames = ({finalScore}) => {
     
     
     return(
-        <section>
+        <section className="saved-games-box">
             {allSavedGames}
             <Link to={'/'}>
                 <button>Return Home</button>
