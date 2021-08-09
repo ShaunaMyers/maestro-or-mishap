@@ -1,7 +1,7 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
 
 const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
-    console.log('questionContainer quest.', question)
+    // console.log('questionContainer quest.', question)
 
     const formatAnswers = () => {
         const unshuffled = [...question.incorrect_answers, question.correct_answer];
