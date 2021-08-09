@@ -23,8 +23,8 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
 
     const formatIndex = () => {
         if (currentIndex < 11) {
-            const indexSummed = (currentIndex + 1);
-            setNextIndex(indexSummed); // ++
+            let indexSummed = (currentIndex + 1);
+            setNextIndex(indexSummed++); // ++
         } else {
             setNextIndex(11);
             setGameOver(true);
@@ -46,9 +46,10 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
         eval(`setChecked${num}(true)`);
         if (answer !== correctAnswer) {
             setAnswerFeedback('Oooh, we\'re sorry! That\'s the wrong answer.');
+            calculateScore(false)
         } else {
-            // setNextQuestionBtnDisabled(false);
             setAnswerFeedback('That is correct! What, are you some kind of genius?');
+            calculateScore(true)
         }
 
         setTimer(setTimeout(() => {
@@ -56,7 +57,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
             setAnswerFeedback('')
         }, 3000))
         
-        calculateScore(false)
     }
 
     const clearCheckboxes = () => {
