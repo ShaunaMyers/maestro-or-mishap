@@ -2,7 +2,6 @@ import QuestionCard from '../QuestionCard/QuestionCard';
 import PropTypes from 'prop-types';
 
 const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
-    // console.log('questionContainer quest.', question)
 
     const formatAnswers = () => {
         const unshuffled = [...question.incorrect_answers, question.correct_answer];
@@ -29,3 +28,9 @@ const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
 }
 
 export default QuestionContainer;
+
+QuestionContainer.propTypes = {
+    question: PropTypes.string,
+    currentIndex: PropTypes.number,
+    addToFinalScore: PropTypes.func,
+  }
