@@ -1,0 +1,8 @@
+.saved-games-box {
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 4%;
+  width: 100%;
+}
