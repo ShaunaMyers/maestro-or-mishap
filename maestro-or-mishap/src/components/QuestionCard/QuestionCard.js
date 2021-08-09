@@ -45,25 +45,17 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
         eval(`setChecked${num}(true)`);
         if (answer !== correctAnswer) {
             setAnswerFeedback('Oooh, we\'re sorry! That\'s the wrong answer.');
-            setTimer(setTimeout(() => {
-                setNextQuestionBtnDisabled(false)
-                setAnswerFeedback('')
-                // formatIndex();
-                console.log('question 1', question)
-            }, 3000))
-            
-            calculateScore(false)
         } else {
-            setNextQuestionBtnDisabled(false);
+            // setNextQuestionBtnDisabled(false);
             setAnswerFeedback('That is correct! What, are you some kind of genius?');
-            setTimer(setTimeout(() => {
-                setNextQuestionBtnDisabled(false)
-                setAnswerFeedback('')
-                // formatIndex();
-                // clearCheckboxes();
-            }, 3000))
-            calculateScore(true)
         }
+        
+        setTimer(setTimeout(() => {
+            setNextQuestionBtnDisabled(false)
+            setAnswerFeedback('')
+        }, 3000))
+        
+        calculateScore(false)
     }
 
     const clearCheckboxes = () => {
