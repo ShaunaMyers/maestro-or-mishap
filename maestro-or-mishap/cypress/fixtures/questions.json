@@ -1,0 +1,18 @@
+{
+    "results": [
+      {
+        "question": "What French artist/band is known for playing on the midi instrument \"Launchpad\"?",
+        "correct_answer": "Madeon",
+        "incorrect_answers": ["Daft Punk", "Disclosure", "David Guetta"]
+      },
+      {
+        "question": "In the song \"The Ultimate Showdown of Ultimate Destiny\" who is the only one to survive the battle?",
+        "correct_answer": "Mr. Rogers",
+        "incorrect_answers": ["Chuck Norris", "Godzilla", "Batman"]
+      },
+      {
+        "question": "Who is the founder and leader of industrial rock band 'Nine Inch Nails'?",
+        "correct_answer": "Trent Reznor",
+        "incorrect_answers": ["Robin Finck", "Josh Homme", "Marilyn Manson"]
+      }
+  ]}
