@@ -24,6 +24,17 @@ p {
   width: 200px;
 }
 
+.gameover {
+  display: flex;
+  justify-content: center;
+}
+
+.gameover-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .next-question-btn {
   background-color: white;
   border: 1px black solid;
