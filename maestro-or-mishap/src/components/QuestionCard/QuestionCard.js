@@ -149,3 +149,21 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
 }
 
 export default QuestionCard;
+
+QuestionCard.propTypes = {
+    gameOver: PropTypes.bool,
+    nextIndex: PropTypes.number,
+    answerFeedback: PropTypes.string,
+    timer: PropTypes.string,
+    score: PropTypes.number,
+    nextQuestionBtnDisabled: PropTypes.boolean,
+    checked1: PropTypes.bool,
+    checked2: PropTypes.bool,
+    checked3: PropTypes.bool,
+    checked4: PropTypes.bool,
+    currentIndex: PropTypes.number,
+    question: PropTypes.string,
+    correctAnswer: PropTypes.string,
+    allAnswers: PropTypes.array,
+    addToFinalScore: PropTypes.func
+  };
