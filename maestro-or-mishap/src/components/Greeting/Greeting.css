@@ -6,12 +6,25 @@
   flex-direction: column;
   font-size: 20px;
   margin-top: 15%;
-  opacity: 0.8;
-  padding-bottom: 10%;
+  opacity: 0.9;
+  padding: 20% 30%;
   text-align: center;
 }
 
 h2 {
   color: #efa600;
   font-size: 30px;
+}
+
+.start-game-btn {
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 4%;
+  width: 150px;
+}
+
+.start-game-btn:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
