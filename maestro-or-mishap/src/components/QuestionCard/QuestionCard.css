@@ -50,3 +50,29 @@ p {
   padding: 4%;
   width: 130px;
 }
+
+.save-game-btn {
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 4%;
+  width: 120px;
+}
+
+.save-game-btn:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
+
+.return-home-btn {
+  border: 1px black solid;
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 4%;
+  width: 150px;
+}
+
+.return-home-btn:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
