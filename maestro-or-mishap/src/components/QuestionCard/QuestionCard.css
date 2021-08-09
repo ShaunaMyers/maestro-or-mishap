@@ -30,7 +30,9 @@ p {
 }
 
 .gameover {
+  color: red;
   display: flex;
+  font-size: 25px;
   justify-content: center;
 }
 
