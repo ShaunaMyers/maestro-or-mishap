@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import './QuestionCard.css';
-import Score from '/'
+import ScoreBox from '../ScoreBox/ScoreBox';
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
    
@@ -34,6 +34,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
 
     const cleanData = (string) => {
+        // &amp;
         let re1 = /&quot;/gi;
         let re2 = /&#039;/gi;
         let newstr1 = string.replace(re1, '"');
@@ -54,6 +55,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
 
     return(
         <article className="question-card">
+            <ScoreBox answerFeedback={answerFeedback}/>
             {answerFeedback && <p>{answerFeedback}</p>}
             <h3>{cleanData(question)}</h3>
             <form>
