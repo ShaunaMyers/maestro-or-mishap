@@ -49,3 +49,9 @@ const App = () => {
 }
 
 export default App;
+
+App.propTypes = {
+  questions: PropTypes.array,
+  finalScore: PropTypes.number
+}
+
