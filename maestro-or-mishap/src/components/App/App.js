@@ -5,6 +5,7 @@ import './App.css';
 import QuestionContainer from '../QuestionContainer/QuestionContainer'
 import Greeting from '../Greeting/Greeting';
 import SavedGames from '../SavedGames/SavedGames';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);

@@ -2,6 +2,7 @@ import { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './QuestionCard.css';
 import ScoreBox from '../ScoreBox/ScoreBox';
+import PropTypes from 'prop-types';
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToFinalScore}) => {
    
