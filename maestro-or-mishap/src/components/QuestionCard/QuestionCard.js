@@ -70,6 +70,11 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     return(
         <article className="question-card">
             <ScoreBox score={score}/>
+            {gameover && 
+            <Link to={'/saved_games'}>
+                <button>Save Game</button>
+            </Link>
+            }
             {answerFeedback && <p>{answerFeedback}</p>}
             <h3>{cleanData(question)}</h3>
             <form>
@@ -77,7 +82,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
                     <input 
                     onChange={() => {
                         evaluateAnswer(allAnswers[0])
-                        calculateScore()
                     }} 
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[0])}</p>
@@ -105,13 +109,16 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
             <Link to={`/question/${nextIndex}`}>
                 <button className="next-question-btn" onClick={() => {
                 checkResponse()
-                // formatIndex()
                 }}
-            >Next Question</button></Link> :
-            <Link to={'/'}>
+                >Next Question</button>
+            </Link> 
+            :
+            <div>
                 <p>Game Over</p>
-                <button>Return Home</button>
-            </Link>
+                <Link to={'/'}>
+                    <button>Return Home</button>
+                </Link>
+            </div>
             }
             
         </article>
