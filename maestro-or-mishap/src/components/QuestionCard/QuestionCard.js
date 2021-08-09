@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './QuestionCard.css';
 import ScoreBox from '../ScoreBox/ScoreBox';
 
-const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
+const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToFinalScore}) => {
    
 
     const [gameOver, setGameOver] = useState(false);
@@ -66,13 +66,17 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         } 
     }
 
+    const handleFinalScore = () => {
+        addToFinalScore(score);
+    }
+
 
     return(
         <article className="question-card">
             <ScoreBox score={score}/>
-            {gameover && 
+            {gameOver && 
             <Link to={'/saved_games'}>
-                <button>Save Game</button>
+                <button onClick={handleFinalScore}>Save Game</button>
             </Link>
             }
             {answerFeedback && <p>{answerFeedback}</p>}
