@@ -4,7 +4,7 @@ import './QuestionCard.css';
 import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
 
-const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToFinalScore}) => {
+const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addToFinalScore }) => {
    
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
@@ -87,7 +87,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
             <ScoreBox score={score}/>
             {gameOver && 
             <Link to={'/saved_games'}>
-                <button onClick={handleFinalScore}>Save Game</button>
+                <button >Save Game</button>
             </Link>
             }
             {answerFeedback && <p>{answerFeedback}</p>}
