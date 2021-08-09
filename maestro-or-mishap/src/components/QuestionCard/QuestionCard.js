@@ -14,6 +14,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         if (!answerFeedback) {
             setAnswerFeedback('Please select an answer.');
             setNextIndex(currentIndex);
+            setTimer(setTimeout(() => setAnswerFeedback(''), 3000))
         } else {
             setAnswerFeedback('');
             formatIndex();
