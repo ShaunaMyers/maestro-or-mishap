@@ -28,7 +28,7 @@ const SavedGames = ({finalScore}) => {
         <section className="saved-games-box">
             {allSavedGames}
             <Link to={'/'}>
-                <button>Return Home</button>
+                <button className="return-home-btn">Return Home</button>
             </Link>
         </section>
     )
