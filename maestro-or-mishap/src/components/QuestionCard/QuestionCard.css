@@ -1,8 +1,12 @@
 .question-card {
   align-items: center;
+  background-color: #dfeefb;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  opacity: 0.8;
+  padding-bottom: 5%;
+  width: 100%;
 }
 
 h3 {
