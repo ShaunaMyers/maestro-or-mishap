@@ -33,7 +33,7 @@ const App = () => {
       <Route exact path='/question/:num' render={({ match }) => {
         let index = parseInt(match.params.num);
         let foundQuestion = questions[index]
-        console.log("FOUND", questions)
+        // console.log("FOUND", questions)
         return(
           <QuestionContainer question={foundQuestion} currentIndex={index} addtoFinalScore={addToFinalScore}/>
           )
