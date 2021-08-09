@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './SavedGames.css';
 
-const SavedGames = ({finalScore}) => {
+const SavedGames = ({finalScore, clearFinalScore}) => {
 
     const [savedGames, setSavedGames] = useState([]);
 
@@ -23,12 +23,15 @@ const SavedGames = ({finalScore}) => {
         )
     })
     
+    const handleClearFinalScore = () => {
+        clearFinalScore();
+    }
     
     return(
         <section className="saved-games-box">
             {allSavedGames}
             <Link to={'/'}>
-                <button className="return-home-btn">Return Home</button>
+                <button onClick={handleClearFinalScore} className="return-home-btn">Return Home</button>
             </Link>
         </section>
     )

@@ -83,10 +83,14 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
         setFinalScore(score);
     }
 
+    const clearFinalScore = () => {
+        setFinalScore(0)
+    }
+
 
     return(
         <article>
-            {finalScore ? <SavedGames finalScore={finalScore}/> :
+            {finalScore ? <SavedGames finalScore={finalScore} clearFinalScore={clearFinalScore}/> :
             <article className="question-card">
                 <div className="score-save-box">
                     <ScoreBox score={score}/>
