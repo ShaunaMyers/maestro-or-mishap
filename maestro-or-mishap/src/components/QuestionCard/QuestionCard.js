@@ -5,7 +5,6 @@ import ScoreBox from '../ScoreBox/ScoreBox';
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToFinalScore}) => {
    
-    // const [question1, setQuestion1] = useState('');
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
@@ -16,17 +15,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
-
-    // const checkResponse = () => {
-    //     if (!answerFeedback) {
-    //         // setAnswerFeedback('Please select an answer.');
-    //         // setNextIndex(currentIndex);
-    //         // setTimer(setTimeout(() => setAnswerFeedback(''), 3000))
-    //     } else {
-    //         setAnswerFeedback('');
-    //         formatIndex();
-    //     }
-    // }
 
     // useEffect(() => {
     //     setQuestion1(question1);
