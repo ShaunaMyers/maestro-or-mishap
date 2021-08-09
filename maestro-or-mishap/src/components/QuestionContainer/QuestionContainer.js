@@ -30,7 +30,7 @@ const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
 export default QuestionContainer;
 
 QuestionContainer.propTypes = {
-    question: PropTypes.string,
+    question: PropTypes.object,
     currentIndex: PropTypes.number,
     addToFinalScore: PropTypes.func,
   }
