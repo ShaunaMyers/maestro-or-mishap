@@ -49,7 +49,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
             // setNextQuestionBtnDisabled(false);
             setAnswerFeedback('That is correct! What, are you some kind of genius?');
         }
-        
+
         setTimer(setTimeout(() => {
             setNextQuestionBtnDisabled(false)
             setAnswerFeedback('')
@@ -130,8 +130,6 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers, addToF
             {!gameOver ?
             <Link to={`/question/${nextIndex}`}>
                 <button disabled={nextQuestionBtnDisabled}className="next-question-btn" onClick={() => {
-                // checkResponse()
-                // evaluateAnswer();
                 formatIndex();
                 }}
                 >Next Question</button>
