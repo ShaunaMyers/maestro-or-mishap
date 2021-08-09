@@ -39,11 +39,6 @@ const App = () => {
           <QuestionContainer question={foundQuestion} currentIndex={index} addtoFinalScore={addToFinalScore}/>
           )
       }}/>
-      <Route exact path='/saved_games' render={() => {
-        return(
-          <SavedGames quesions={questions} finalScore={finalScore}/>
-        )
-      }}/>
     </main>
   );
 }
