@@ -1,6 +1,7 @@
 import { useState} from 'react';
 import { Link } from 'react-router-dom';
 import './QuestionCard.css';
+import Score from '/'
 
 const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
    
