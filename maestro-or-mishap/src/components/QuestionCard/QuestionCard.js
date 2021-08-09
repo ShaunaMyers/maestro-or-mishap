@@ -84,12 +84,14 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
 
     return(
         <article className="question-card">
-            <ScoreBox score={score}/>
-            {gameOver && 
-            <Link to={'/saved_games'}>
-                <button >Save Game</button>
-            </Link>
-            }
+            <div className="score-save-box">
+                <ScoreBox score={score}/>
+                {gameOver && 
+                <Link to={'/saved_games'}>
+                    <button className="save-game-btn" onClick={handleFinalScore}>Save Game</button>
+                </Link>
+                }
+            </div>
             {answerFeedback && <p>{answerFeedback}</p>}
             <h3>{cleanData(question)}</h3>
             <form>
@@ -136,10 +138,10 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
                 >Next Question</button>
             </Link> 
             :
-            <div>
-                <p>Game Over</p>
+            <div className="gameover-box">
+                <p className="gameover">Game Over</p>
                 <Link to={'/'}>
-                    <button>Return Home</button>
+                    <button className="return-home-btn">Return Home</button>
                 </Link>
             </div>
             }
