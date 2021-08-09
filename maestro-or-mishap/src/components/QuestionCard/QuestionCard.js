@@ -10,6 +10,7 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
     const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
     const [timer, setTimer] = useState('');
+    const [score, setScore] = useState(0);
 
     const checkResponse = () => {
         if (!answerFeedback) {
@@ -46,22 +47,38 @@ const QuestionCard = ({currentIndex, question, correctAnswer, allAnswers}) => {
         if (answer !== correctAnswer) {
             setAnswerFeedback('Oooh, we\'re sorry! That\'s the wrong answer.');
             setTimer(setTimeout(() => setAnswerFeedback(''), 3000))
+            calculateScore(false)
         } else {
             setAnswerFeedback('That is correct! What, are you some kind of genius?');
             setTimer(setTimeout(() => setAnswerFeedback(''), 3000))
+            calculateScore(true)
         }
+    }
+
+    const calculateScore = (answer) => {
+        let currentScore = score;
+        if (!answer) {
+            const decreaseScore = currentScore - 10;
+            setScore(decreaseScore);
+        } else {
+            const incrementScore = currentScore + 10;
+            setScore(incrementScore);
+        } 
     }
 
 
     return(
         <article className="question-card">
-            <ScoreBox answerFeedback={answerFeedback}/>
+            <ScoreBox score={score}/>
             {answerFeedback && <p>{answerFeedback}</p>}
             <h3>{cleanData(question)}</h3>
             <form>
                 <div>
                     <input 
-                    onChange={() => evaluateAnswer(allAnswers[0])} 
+                    onChange={() => {
+                        evaluateAnswer(allAnswers[0])
+                        calculateScore()
+                    }} 
                     type="checkbox"/>
                     <p>{cleanData(allAnswers[0])}</p>
                 </div>
