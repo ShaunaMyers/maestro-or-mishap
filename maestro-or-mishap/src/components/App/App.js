@@ -35,7 +35,7 @@ const App = () => {
         let foundQuestion = questions[index]
         console.log("FOUND", questions)
         return(
-          <QuestionContainer question={foundQuestion} currentIndex={index}/>
+          <QuestionContainer question={foundQuestion} currentIndex={index} addtoFinalScore={addToFinalScore}/>
           )
       }}/>
       <Route exact path='/saved_games' render={() => {
