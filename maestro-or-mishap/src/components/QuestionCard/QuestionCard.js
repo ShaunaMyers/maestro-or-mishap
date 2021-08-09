@@ -156,7 +156,7 @@ QuestionCard.propTypes = {
     answerFeedback: PropTypes.string,
     timer: PropTypes.string,
     score: PropTypes.number,
-    nextQuestionBtnDisabled: PropTypes.boolean,
+    nextQuestionBtnDisabled: PropTypes.bool,
     checked1: PropTypes.bool,
     checked2: PropTypes.bool,
     checked3: PropTypes.bool,
