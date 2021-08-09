@@ -1,4 +1,5 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
+import PropTypes from 'prop-types';
 
 const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
     // console.log('questionContainer quest.', question)
