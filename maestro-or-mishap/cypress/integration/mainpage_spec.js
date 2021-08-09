@@ -28,5 +28,27 @@ describe('Home Page', () => {
             .get('button')
             .contains('Start Game')
     })
+
+    it('Should be able to click on the "Start Game" button and be taken to the first question', () => {
+        cy 
+            .get('.greeting-container')
+            .get('button')
+            .click()
+            .url()
+            .should('eq','http://localhost:3000/question/0')
+            // .get('.question-card')
+            // .get('h3')
+            // .should('be.visible')
+    })  
+
+    // it('Should be able to view the initial score of 0 at the top of the question card', () => {
+    //     cy 
+    //         .get('.greeting-container')
+    //         .get('button')
+    //         .click()
+    //         .get('.question-card')
+    //         .get('h3')
+    //         .should('be.visible')
+    // })
   
 })
