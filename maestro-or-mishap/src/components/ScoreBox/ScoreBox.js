@@ -1,9 +1,12 @@
 import './ScoreBox.css';
 
-const ScoreBox = () => {
+const ScoreBox = ({ answerFeedback }) => {
+
+
+
     return(
         <div>
-            <p>Score: {}</p>
+            <p>Score: {score}</p>
         </div>
     )
 }
