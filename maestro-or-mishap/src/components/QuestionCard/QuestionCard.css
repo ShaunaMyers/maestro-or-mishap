@@ -24,6 +24,11 @@ p {
   width: 200px;
 }
 
+.score-save-box {
+  display: flex;
+  justify-content: space-between;
+}
+
 .gameover {
   display: flex;
   justify-content: center;
