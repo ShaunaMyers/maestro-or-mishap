@@ -17,6 +17,16 @@ describe('Home Page', () => {
             .get('.greeting-container')
             .get('h2')
             .contains('Welcome!')
+
+            .get('p')
+            .contains('Please try your hand at our music trivia game and see if you are a music maestro!')
+    })
+
+    it('Should have a button visible that indicates that a game can start', () => {
+        cy
+            .get('.greeting-container')
+            .get('button')
+            .contains('Start Game')
     })
   
 })
