@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './QuestionCard.css';
 import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
+import SavedGames from '../SavedGames/SavedGames';
 
 const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addToFinalScore }) => {
    
@@ -12,6 +13,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
     const [timer, setTimer] = useState('');
     const [score, setScore] = useState(0);
     const [nextQuestionBtnDisabled, setNextQuestionBtnDisabled] = useState(true);
+    const [finalScore, setFinalScore] = useState(0);
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
@@ -78,72 +80,76 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
     }
 
     const handleFinalScore = () => {
-        addToFinalScore(score);
+        setFinalScore(score);
     }
 
 
     return(
-        <article className="question-card">
-            <div className="score-save-box">
-                <ScoreBox score={score}/>
-                {gameOver && 
-                <Link to={'/saved_games'}>
-                    <button className="save-game-btn" onClick={handleFinalScore}>Save Game</button>
-                </Link>
+        <article>
+            {finalScore ? <SavedGames finalScore={finalScore}/> :
+            <article className="question-card">
+                <div className="score-save-box">
+                    <ScoreBox score={score}/>
+                    {gameOver && 
+                    // <Link to={'/saved_games'}>
+                        <button className="save-game-btn" onClick={handleFinalScore}>Save Game</button>
+                    // {/* </Link> */}
+                    }
+                </div>
+                {answerFeedback && <p>{answerFeedback}</p>}
+                <h3>{cleanData(question)}</h3>
+                <form>
+                    <div>
+                        <input 
+                        onChange={() => {
+                            evaluateAnswer(allAnswers[0], 1)
+                        }} 
+                        type="checkbox"
+                        checked={checked1}
+                        />
+                        <p>{cleanData(allAnswers[0])}</p>
+                    </div>
+                    <div>
+                        <input 
+                        onChange={() => evaluateAnswer(allAnswers[1], 2)} 
+                        type="checkbox"
+                        checked={checked2}
+                        />
+                        <p>{cleanData(allAnswers[1])}</p>
+                    </div>
+                    <div>
+                        <input 
+                        onChange={() => evaluateAnswer(allAnswers[2], 3)} 
+                        type="checkbox"
+                        checked={checked3}
+                        />
+                        <p>{cleanData(allAnswers[2])}</p>
+                    </div>
+                    <div>
+                        <input 
+                        onChange={() => evaluateAnswer(allAnswers[3], 4)} 
+                        type="checkbox"
+                        checked={checked4}
+                        />
+                        <p>{cleanData(allAnswers[3])}</p>
+                    </div>
+                </form>
+                {!gameOver ?
+                <Link to={`/question/${nextIndex}`}>
+                    <button disabled={nextQuestionBtnDisabled}className="next-question-btn" onClick={() => {
+                    formatIndex();
+                    }}
+                    >Next Question</button>
+                </Link> 
+                :
+                <div className="gameover-box">
+                    <p className="gameover">Game Over</p>
+                    <Link to={'/'}>
+                        <button className="return-home-btn">Return Home</button>
+                    </Link>
+                </div>
                 }
-            </div>
-            {answerFeedback && <p>{answerFeedback}</p>}
-            <h3>{cleanData(question)}</h3>
-            <form>
-                <div>
-                    <input 
-                    onChange={() => {
-                        evaluateAnswer(allAnswers[0], 1)
-                    }} 
-                    type="checkbox"
-                    checked={checked1}
-                    />
-                    <p>{cleanData(allAnswers[0])}</p>
-                </div>
-                <div>
-                    <input 
-                    onChange={() => evaluateAnswer(allAnswers[1], 2)} 
-                    type="checkbox"
-                    checked={checked2}
-                    />
-                    <p>{cleanData(allAnswers[1])}</p>
-                </div>
-                <div>
-                    <input 
-                    onChange={() => evaluateAnswer(allAnswers[2], 3)} 
-                    type="checkbox"
-                    checked={checked3}
-                    />
-                    <p>{cleanData(allAnswers[2])}</p>
-                </div>
-                <div>
-                    <input 
-                    onChange={() => evaluateAnswer(allAnswers[3], 4)} 
-                    type="checkbox"
-                    checked={checked4}
-                    />
-                    <p>{cleanData(allAnswers[3])}</p>
-                </div>
-            </form>
-            {!gameOver ?
-            <Link to={`/question/${nextIndex}`}>
-                <button disabled={nextQuestionBtnDisabled}className="next-question-btn" onClick={() => {
-                formatIndex();
-                }}
-                >Next Question</button>
-            </Link> 
-            :
-            <div className="gameover-box">
-                <p className="gameover">Game Over</p>
-                <Link to={'/'}>
-                    <button className="return-home-btn">Return Home</button>
-                </Link>
-            </div>
+            </article>
             }
             
         </article>
