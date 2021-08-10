@@ -1,4 +1,4 @@
-describe('Home Page', () => {
+describe('Main Page', () => {
     beforeEach(() => {
       cy.fixture('questions.json').then((questionData) => {
         cy.intercept('https://opentdb.com/api.php?amount=12&category=12&difficulty=medium&type=multiple', questionData)
@@ -41,14 +41,15 @@ describe('Home Page', () => {
             // .should('be.visible')
     })  
 
-    // it('Should be able to view the initial score of 0 at the top of the question card', () => {
-    //     cy 
-    //         .get('.greeting-container')
-    //         .get('button')
-    //         .click()
-    //         .get('.question-card')
-    //         .get('h3')
-    //         .should('be.visible')
-    // })
+    it('Should be able to view the initial score of 0 at the top of the question card', () => {
+        cy 
+            .get('.greeting-container')
+            .get('button')
+            .click()
+            .get('.score-save-box')
+            .get('p')
+            .contains("Score: 0")
+    })
+    
+  })
   
-})
