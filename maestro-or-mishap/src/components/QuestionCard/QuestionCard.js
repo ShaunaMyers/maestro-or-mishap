@@ -5,9 +5,8 @@ import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
 import SavedGames from '../SavedGames/SavedGames';
 
-const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addToFinalScore }) => {
-   
-    // const [question1, setQuestion1] = useState('')
+const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers }) => {
+
 
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
@@ -16,24 +15,15 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
     const [score, setScore] = useState(0);
     const [nextQuestionBtnDisabled, setNextQuestionBtnDisabled] = useState(true);
     const [finalScore, setFinalScore] = useState(0);
-    // const [checked, setChecked] = useState(false)
-
-
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
 
-    // useEffect(() => {
-    //     if(question1) {
-    //         setQuestion1(question);
-    //     }
-    // }, [question1])
-
     const formatIndex = () => {
         if (currentIndex < 11) {
             let indexSummed = (currentIndex + 1);
-            setNextIndex(indexSummed++); // ++
+            setNextIndex(indexSummed++);
         } else {
             setNextIndex(11);
             setGameOver(true);
