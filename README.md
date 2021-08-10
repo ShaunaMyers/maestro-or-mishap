@@ -10,12 +10,11 @@
 - [Technologies Used](#technologies-used)
 - [Functionality](#functionality)
 - [Future Additions](#future-additions)
-- [Contributors](#contributors)
 
 ## Overview and Project Goals
 Welcome to the game, "Are you a Maestro?" - where music afficianados can flex their skills and can show off by answering questions that often only a trained musician or avid music lover would know.
 
-The goal of this Mod3 group [project](https://frontend.turing.edu/projects/module-3/stretch.html) was build an application for a niche audience using React.
+The goal of this Mod3 group [project](https://frontend.turing.edu/projects/module-3/niche-audience.html) was to build an application for a niche audience using React.
  
 ## Installation and Viewing 
 
@@ -46,19 +45,21 @@ To solidify and demonstrate the understanding of:
 
 #### View Welcome Page
 - A user will be greeted at the home page where they can press a button to start the game.<br>
-![Demo browsing tips on main page]()
+![Demo showing welcome page](https://user-images.githubusercontent.com/74690897/128794778-7a182aa0-8804-4727-8676-7499b1b5763c.gif)
+
 
 
 
 #### Answer a Question
 - The user may check a box next to an answer and will get immediate feedback<br>
-![Demo adding tip to main page](https://user-images.githubusercontent.com/74690897/127753669-362810f6-2166-41bf-ae82-69d1682d0f97.gif)
+![Demo showing answering a question](https://user-images.githubusercontent.com/74690897/128794932-00aa51c4-7177-4f0b-a7b4-439e6865cc1e.gif)
+
 
 
 
 #### A user can save a game so they can view their scores later
 - The user can save a game and will see their score and the date saved<br>
-![Demo searching for tips by module](https://user-images.githubusercontent.com/74690897/127753872-81791998-5957-4858-888e-decd22fcb0a9.gif)
+![Demo showing saving a game](https://user-images.githubusercontent.com/74690897/128795109-cd6f10a4-ba88-4dc7-bf8d-b6fb44eb2f57.gif)
 
 
 ## Future Additions
