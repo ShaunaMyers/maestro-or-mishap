@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './SavedGames.css';
+import PropTypes from 'prop-types';
 
 const SavedGames = ({finalScore, clearFinalScore}) => {
 
@@ -38,3 +39,9 @@ const SavedGames = ({finalScore, clearFinalScore}) => {
 }
 
 export default SavedGames;
+
+SavedGames.propTypes = {
+    savedGames: PropTypes.array,
+    finalScore: PropTypes.number,
+    clearFinalScore: PropTypes.func
+}
