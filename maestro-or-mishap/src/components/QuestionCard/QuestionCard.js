@@ -7,6 +7,8 @@ import SavedGames from '../SavedGames/SavedGames';
 
 const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addToFinalScore }) => {
    
+    // const [question1, setQuestion1] = useState('')
+
     const [gameOver, setGameOver] = useState(false);
     const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
@@ -14,13 +16,18 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
     const [score, setScore] = useState(0);
     const [nextQuestionBtnDisabled, setNextQuestionBtnDisabled] = useState(true);
     const [finalScore, setFinalScore] = useState(0);
+    // const [checked, setChecked] = useState(false)
+
+
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
 
     // useEffect(() => {
-    //     setQuestion1(question1);
+    //     if(question1) {
+    //         setQuestion1(question);
+    //     }
     // }, [question1])
 
     const formatIndex = () => {
@@ -36,12 +43,14 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
 
 
     const cleanData = (string) => {
-        // &amp;
+        // 
         let re1 = /&quot;/gi;
         let re2 = /&#039;/gi;
+        let re3 = /&amp;/gi;
         let newstr1 = string.replace(re1, '"');
         let newstr2 = newstr1.replace(re2,"'");
-        return newstr2;  
+        let newstr3 = newstr2.replace(re3, "&");
+        return newstr3;  
     }
 
     const evaluateAnswer = (answer, num) => {
@@ -95,9 +104,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
                 <div className="score-save-box">
                     <ScoreBox score={score}/>
                     {gameOver && 
-                    // <Link to={'/saved_games'}>
                         <button className="save-game-btn" onClick={handleFinalScore}>Save Game</button>
-                    // {/* </Link> */}
                     }
                 </div>
                 {answerFeedback && <p>{answerFeedback}</p>}
