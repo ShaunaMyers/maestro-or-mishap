@@ -107,7 +107,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, addTo
                         <button className="save-game-btn" onClick={handleFinalScore}>Save Game</button>
                     }
                 </div>
-                {answerFeedback && <p>{answerFeedback}</p>}
+                {answerFeedback && <p className="answer-feedback">{answerFeedback}</p>}
                 <h3>{cleanData(question)}</h3>
                 <form>
                     <div>
