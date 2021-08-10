@@ -8,12 +8,16 @@ import PropTypes from 'prop-types';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
+  const [error, setError] = useState('')
   const [finalScore, setFinalScore] = useState(0);
 
   useEffect(() => {
+    setError('')
     fetchQuestions() 
       .then(data => setQuestions(data.results))
-      .catch(error => console.log(error))
+      .catch(() => {
+        setError('Oops, problem loading game. Please refresh the page.')
+      })
   }, [])
 
   const addToFinalScore = (score) => {
@@ -27,7 +31,10 @@ const App = () => {
       </header>
       <Route exact path='/' render={() => {
         return(
-          <Greeting />
+          <div>
+            {error && <p>{error}</p>}
+            <Greeting />
+          </div>
         )
       }}/>
      <Route exact path='/question/:num' render={({ match }) => {
