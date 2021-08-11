@@ -15,7 +15,6 @@ const App = () => {
     fetchQuestions() 
       .then(data => {
         setQuestions(restructureData(data.results))
-        // console.log(restructureData(data.results), 'restr data')
       })
       .catch(() => {
         setError('Oops, problem loading game. Please refresh the page.')
@@ -37,21 +36,6 @@ const App = () => {
   }
 
   const cleanData = (string) => {
-
-  //       console.log('data coming in', data)
-  //       // an array 
-  //         // a key of question    a string
-  //         // a key of correct_answer    a string
-  //         // a key of incorrect_answers    an array
-
-  //       // iterate over array 
-  //       // at each element clean question
-          // clean correct_answer
-          // destructure incorrect_answers
-
-        // const cleanedData
-
-        // 74&ndash;
         let re1 = /&quot;/gi;
         let re2 = /&#039;/gi;
         let re3 = /&amp;/gi;
@@ -77,6 +61,7 @@ const App = () => {
         )
       }}/>
      <Route exact path='/question/:num' render={({ match }) => {
+       console.log('match param', match.params)
         let index = parseInt(match.params.num);
         let foundQuestion = questions[index]
         console.log('found question', foundQuestion)

@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './QuestionCard.css';
+import { useHistory } from "react-router-dom";
 import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
 import SavedGames from '../SavedGames/SavedGames';
@@ -24,31 +25,30 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
     //     console.log(question, 'question card question')
     //     setFoundQuestion(question)
     // }, [])
+    const history = useHistory();
+    let nextIndex;
 
+    const onNextQuestionClick = () => {
+        formatIndex();
+        history.push(`/question/${nextIndex}`)
+
+    }
 
     const formatIndex = () => {
         if (currentIndex < 11) {
+            console.log('current index', currentIndex)
             let indexSummed = currentIndex + 1;
-            clearCheckboxes();
-            return indexSummed;
+            console.log(' index summed', indexSummed)
+            nextIndex = indexSummed;
+            console.log('next index', typeof nextIndex)
         } else {
             setGameOver(true);
-            clearCheckboxes();
-            return 11;
+            nextIndex = 11;
         }
+        clearCheckboxes();
     }
 
 
-    // const cleanData = (string) => {
-    //     console.log('How about getting here now?')
-    //     let re1 = /&quot;/gi;
-    //     let re2 = /&#039;/gi;
-    //     let re3 = /&amp;/gi;
-    //     let newstr1 = string.replace(re1, '"');
-    //     let newstr2 = newstr1.replace(re2,"'");
-    //     let newstr3 = newstr2.replace(re3, "&");
-    //     return newstr3;  
-    // }
 
     const evaluateAnswer = (answer, num) => {
         eval(`setChecked${num}(true)`);
@@ -142,14 +142,11 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                     </div>
                 </form>
                 {!gameOver ?
-                <Link to={`/question/${formatIndex()}`}>
+                // <Link to={`/question/${nextIndex}`}>
                     <button disabled={nextQuestionBtnDisabled}className="next-question-btn" 
-                    // onClick={() => {
-                    // formatIndex();
-                    // // handleFindQuestion(nextIndex);
-                    // }}
+                    onClick={onNextQuestionClick}
                     >Next Question</button>
-                </Link> 
+                // </Link> 
                 :
                 <div className="gameover-box">
                     <p className="gameover">Game Over</p>
