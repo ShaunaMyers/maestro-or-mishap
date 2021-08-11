@@ -8,8 +8,6 @@ import SavedGames from '../SavedGames/SavedGames';
 
 const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
 
-    // const [foundQuestion, setFoundQuestion] = useState('')
-
     const [gameOver, setGameOver] = useState(false);
     const [answerFeedback, setAnswerFeedback] = useState('');
     const [timer, setTimer] = useState('');
@@ -21,10 +19,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
 
-    // useEffect(() => {
-    //     console.log(question, 'question card question')
-    //     setFoundQuestion(question)
-    // }, [])
+
     const history = useHistory();
     let nextIndex;
 
@@ -47,8 +42,6 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
         }
         clearCheckboxes();
     }
-
-
 
     const evaluateAnswer = (answer, num) => {
         eval(`setChecked${num}(true)`);
