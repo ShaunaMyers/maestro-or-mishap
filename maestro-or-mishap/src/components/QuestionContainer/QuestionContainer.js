@@ -1,7 +1,7 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
 import PropTypes from 'prop-types';
 
-const QuestionContainer = ({ question, currentIndex, addToFinalScore, findQuestion }) => {
+const QuestionContainer = ({ question, currentIndex, findQuestion }) => {
 
     const formatAnswers = () => {
         // console.log('What is this question', question)
@@ -22,7 +22,6 @@ const QuestionContainer = ({ question, currentIndex, addToFinalScore, findQuesti
             question={question.question} 
             correctAnswer={question.correct_answer} 
             allAnswers={formatAnswers()}
-            addToFinalScore={addToFinalScore}
             findQuestion={findQuestion}
             />
         </section>

@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [error, setError] = useState('')
-  const [finalScore, setFinalScore] = useState(0);
-  // const [locatedQuestion, setLocatedQuestion] = useState({})
 
   useEffect(() => {
     setError('')
@@ -20,16 +18,6 @@ const App = () => {
         setError('Oops, problem loading game. Please refresh the page.')
       })
   }, [])
-
-  // const addToFinalScore = (score) => {
-  //   setFinalScore(score);
-  // }
-
-  const findQuestion = (index) => {
-    console.log('index for sure', index)
-    const matchingQuestion = questions[index];
-    setLocatedQuestion(matchingQuestion);
-  }
  
   return (
     <main className="App">
@@ -49,7 +37,7 @@ const App = () => {
         let foundQuestion = questions[index]
         console.log('found question', foundQuestion)
         return(
-          <QuestionContainer question={foundQuestion} currentIndex={index} addtoFinalScore={addToFinalScore} findQuestion={findQuestion}/>
+          <QuestionContainer question={foundQuestion} currentIndex={index}
           )
       }}/>
     </main>
