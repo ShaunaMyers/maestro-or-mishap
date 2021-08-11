@@ -26,7 +26,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
     const onNextQuestionClick = () => {
         formatIndex();
         history.push(`/question/${nextIndex}`)
-
+        setNextQuestionBtnDisabled(true);
     }
 
     const formatIndex = () => {
@@ -135,11 +135,9 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                     </div>
                 </form>
                 {!gameOver ?
-                // <Link to={`/question/${nextIndex}`}>
                     <button disabled={nextQuestionBtnDisabled}className="next-question-btn" 
                     onClick={onNextQuestionClick}
                     >Next Question</button>
-                // </Link> 
                 :
                 <div className="gameover-box">
                     <p className="gameover">Game Over</p>
