@@ -51,8 +51,13 @@ p {
   border: 1px black solid;
   border-radius: 5px;
   font-size: 15px;
-  padding: 4%;
+  padding: 1%;
   width: 130px;
+}
+
+.next-question-btn:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
 
 .save-game-btn {
