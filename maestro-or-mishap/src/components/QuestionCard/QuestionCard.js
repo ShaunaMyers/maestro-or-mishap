@@ -5,11 +5,11 @@ import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
 import SavedGames from '../SavedGames/SavedGames';
 
-const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQuestion }) => {
+const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
 
+    // const [foundQuestion, setFoundQuestion] = useState('')
 
     const [gameOver, setGameOver] = useState(false);
-    // const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
     const [timer, setTimer] = useState('');
     const [score, setScore] = useState(0);
@@ -19,6 +19,11 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
+
+    // useEffect(() => {
+    //     console.log(question, 'question card question')
+    //     setFoundQuestion(question)
+    // }, [])
 
 
     const formatIndex = () => {
@@ -34,16 +39,16 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
     }
 
 
-    const cleanData = (string) => {
-        // console.log('hey')
-        let re1 = /&quot;/gi;
-        let re2 = /&#039;/gi;
-        let re3 = /&amp;/gi;
-        let newstr1 = string.replace(re1, '"');
-        let newstr2 = newstr1.replace(re2,"'");
-        let newstr3 = newstr2.replace(re3, "&");
-        return newstr3;  
-    }
+    // const cleanData = (string) => {
+    //     console.log('How about getting here now?')
+    //     let re1 = /&quot;/gi;
+    //     let re2 = /&#039;/gi;
+    //     let re3 = /&amp;/gi;
+    //     let newstr1 = string.replace(re1, '"');
+    //     let newstr2 = newstr1.replace(re2,"'");
+    //     let newstr3 = newstr2.replace(re3, "&");
+    //     return newstr3;  
+    // }
 
     const evaluateAnswer = (answer, num) => {
         eval(`setChecked${num}(true)`);
@@ -88,12 +93,6 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
         setFinalScore(0)
     }
 
-    const handleFindQuestion = (index) => {
-        console.log("indexxxxx", index)
-        findQuestion(index);
-    }
-
-
     return(
         <article>
             {finalScore ? <SavedGames finalScore={finalScore} clearFinalScore={clearFinalScore}/> :
@@ -105,7 +104,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
                     }
                 </div>
                 {answerFeedback && <p className="answer-feedback">{answerFeedback}</p>}
-                <h3>{cleanData(question)}</h3>
+                <h3>{question}</h3>
                 <form>
                     <div>
                         <input 
@@ -115,7 +114,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
                         type="checkbox"
                         checked={checked1}
                         />
-                        <p>{cleanData(allAnswers[0])}</p>
+                        <p>{allAnswers[0]}</p>
                     </div>
                     <div>
                         <input 
@@ -123,7 +122,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
                         type="checkbox"
                         checked={checked2}
                         />
-                        <p>{cleanData(allAnswers[1])}</p>
+                        <p>{allAnswers[1]}</p>
                     </div>
                     <div>
                         <input 
@@ -131,7 +130,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
                         type="checkbox"
                         checked={checked3}
                         />
-                        <p>{cleanData(allAnswers[2])}</p>
+                        <p>{allAnswers[2]}</p>
                     </div>
                     <div>
                         <input 
@@ -139,7 +138,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQ
                         type="checkbox"
                         checked={checked4}
                         />
-                        <p>{cleanData(allAnswers[3])}</p>
+                        <p>{allAnswers[3]}</p>
                     </div>
                 </form>
                 {!gameOver ?
