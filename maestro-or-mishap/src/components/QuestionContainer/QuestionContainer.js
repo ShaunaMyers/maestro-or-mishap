@@ -1,9 +1,10 @@
 import QuestionCard from '../QuestionCard/QuestionCard';
 import PropTypes from 'prop-types';
 
-const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
+const QuestionContainer = ({ question, currentIndex, addToFinalScore, findQuestion }) => {
 
     const formatAnswers = () => {
+        // console.log('What is this question', question)
         const unshuffled = [...question.incorrect_answers, question.correct_answer];
     
         const shuffled = unshuffled
@@ -22,6 +23,7 @@ const QuestionContainer = ({ question, currentIndex, addToFinalScore }) => {
             correctAnswer={question.correct_answer} 
             allAnswers={formatAnswers()}
             addToFinalScore={addToFinalScore}
+            findQuestion={findQuestion}
             />
         </section>
     )

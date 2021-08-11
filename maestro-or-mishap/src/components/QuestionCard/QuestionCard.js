@@ -5,11 +5,11 @@ import ScoreBox from '../ScoreBox/ScoreBox';
 import PropTypes from 'prop-types';
 import SavedGames from '../SavedGames/SavedGames';
 
-const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers }) => {
+const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers, findQuestion }) => {
 
 
     const [gameOver, setGameOver] = useState(false);
-    const [nextIndex, setNextIndex] = useState(0);
+    // const [nextIndex, setNextIndex] = useState(0);
     const [answerFeedback, setAnswerFeedback] = useState('');
     const [timer, setTimer] = useState('');
     const [score, setScore] = useState(0);
@@ -20,20 +20,22 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers }) => 
     const [checked3, setChecked3] = useState(false);
     const [checked4, setChecked4] = useState(false);
 
+
     const formatIndex = () => {
         if (currentIndex < 11) {
-            let indexSummed = (currentIndex + 1);
-            setNextIndex(indexSummed++);
+            let indexSummed = currentIndex + 1;
+            clearCheckboxes();
+            return indexSummed;
         } else {
-            setNextIndex(11);
             setGameOver(true);
+            clearCheckboxes();
+            return 11;
         }
-        clearCheckboxes();
     }
 
 
     const cleanData = (string) => {
-        // 
+        // console.log('hey')
         let re1 = /&quot;/gi;
         let re2 = /&#039;/gi;
         let re3 = /&amp;/gi;
@@ -86,6 +88,11 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers }) => 
         setFinalScore(0)
     }
 
+    const handleFindQuestion = (index) => {
+        console.log("indexxxxx", index)
+        findQuestion(index);
+    }
+
 
     return(
         <article>
@@ -136,10 +143,12 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers }) => 
                     </div>
                 </form>
                 {!gameOver ?
-                <Link to={`/question/${nextIndex}`}>
-                    <button disabled={nextQuestionBtnDisabled}className="next-question-btn" onClick={() => {
-                    formatIndex();
-                    }}
+                <Link to={`/question/${formatIndex()}`}>
+                    <button disabled={nextQuestionBtnDisabled}className="next-question-btn" 
+                    // onClick={() => {
+                    // formatIndex();
+                    // // handleFindQuestion(nextIndex);
+                    // }}
                     >Next Question</button>
                 </Link> 
                 :
