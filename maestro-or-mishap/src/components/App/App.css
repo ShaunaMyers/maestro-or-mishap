@@ -18,8 +18,8 @@ main {
 }
 
 h1 {
-  color: white;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  color: rgb(251, 251, 251);
+  font-family: "Sanchez", serif;
   font-size: 70px;
   text-align: center;
 }
