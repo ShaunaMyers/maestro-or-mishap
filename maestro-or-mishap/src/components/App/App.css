@@ -1,41 +1,18 @@
 body {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://pyxis.nymag.com/v1/imgs/25e/249/c01af4fc10fd4ed54e38b49b597666054f-4-barker.jpg");
   background-position: center;
   background-size: cover;
-  height: 100vh;
-  margin: 0;
 }
-
-/* .main-container {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
-  /* width: 400px; */
-/* } */
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  margin: 10px;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* height: 100vh; */
-  /* width: 100%; */
 }
 
 .app-header {
-  /* background-color: white; */
   display: flex;
   justify-content: center;
 }
