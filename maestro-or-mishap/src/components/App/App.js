@@ -48,27 +48,29 @@ const App = () => {
   }
  
   return (
-    <main className="App">
-      <header className="App-header">
+    <main>
+      <header className="app-header">
         <h1>Are you the Maestro?</h1>
       </header>
-      <Route exact path='/' render={() => {
-        return(
-          <div>
-            {error && <p>{error}</p>}
-            <Greeting />
-          </div>
-        )
-      }}/>
-     <Route exact path='/question/:num' render={({ match }) => {
-       console.log('match param', match.params)
-        let index = parseInt(match.params.num);
-        let foundQuestion = questions[index]
-        console.log('found question', foundQuestion)
-        return(
-          <QuestionContainer question={foundQuestion} currentIndex={index}/>
+      <section className="main-container">
+        <Route exact path='/' render={() => {
+          return(
+            <div>
+              {error && <p>{error}</p>}
+              <Greeting />
+            </div>
           )
-      }}/>
+        }}/>
+      <Route exact path='/question/:num' render={({ match }) => {
+        console.log('match param', match.params)
+          let index = parseInt(match.params.num);
+          let foundQuestion = questions[index]
+          console.log('found question', foundQuestion)
+          return(
+            <QuestionContainer question={foundQuestion} currentIndex={index}/>
+            )
+        }}/>
+      </section>
     </main>
   );
 }
