@@ -99,7 +99,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                 {answerFeedback && <p className="answer-feedback">{answerFeedback}</p>}
                 <h3>{question}</h3>
                 <form>
-                    <div>
+                    <div className="input-container">
                         <input 
                         onChange={() => {
                             evaluateAnswer(allAnswers[0], 1)
@@ -109,7 +109,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                         />
                         <p>{allAnswers[0]}</p>
                     </div>
-                    <div>
+                    <div className="input-container">
                         <input 
                         onChange={() => evaluateAnswer(allAnswers[1], 2)} 
                         type="checkbox"
@@ -117,7 +117,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                         />
                         <p>{allAnswers[1]}</p>
                     </div>
-                    <div>
+                    <div className="input-container">
                         <input 
                         onChange={() => evaluateAnswer(allAnswers[2], 3)} 
                         type="checkbox"
@@ -125,7 +125,7 @@ const QuestionCard = ({ currentIndex, question, correctAnswer, allAnswers}) => {
                         />
                         <p>{allAnswers[2]}</p>
                     </div>
-                    <div>
+                    <div className="input-container">
                         <input 
                         onChange={() => evaluateAnswer(allAnswers[3], 4)} 
                         type="checkbox"
