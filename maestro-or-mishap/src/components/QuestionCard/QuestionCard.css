@@ -15,11 +15,6 @@ h3 {
   text-align: center;
 }
 
-div {
-  align-items: center;
-  display: flex;
-}
-
 p {
   display: flex;
   font-size: 18px;
