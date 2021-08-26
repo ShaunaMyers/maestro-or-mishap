@@ -14,16 +14,19 @@
 
 h2 {
   color: #efa600;
+  font-family: "Sanchez", serif;
   font-size: 50px;
   font-weight: 500;
 }
 
 .start-game-btn {
-  border: 1px black solid;
-  border-radius: 5px;
-  font-size: 15px;
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: bold;
   margin-top: 20%;
-  padding: 4%;
+  padding: 7%;
   width: 150px;
 }
 
