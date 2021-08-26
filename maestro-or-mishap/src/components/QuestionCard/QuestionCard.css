@@ -4,7 +4,7 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  opacity: 0.8;
+  opacity: 0.9;
   padding-bottom: 5%;
   width: 700px;
 }
@@ -21,6 +21,11 @@ p {
   font-weight: bold;
   margin-left: 5%;
   width: 200px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
 }
 
 .score-save-box {
@@ -43,11 +48,12 @@ p {
 
 .next-question-btn {
   background-color: white;
-  border: 1px black solid;
+  border: 2px black solid;
   border-radius: 5px;
-  font-size: 15px;
-  padding: 1%;
-  width: 130px;
+  font-size: 18px;
+  margin-top: 5%;
+  padding: 1.5%;
+  width: 150px;
 }
 
 .next-question-btn:hover {
