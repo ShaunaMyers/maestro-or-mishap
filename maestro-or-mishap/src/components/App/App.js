@@ -52,7 +52,6 @@ const App = () => {
       <header className="app-header">
         <h1>Are you the Maestro?</h1>
       </header>
-      <section className="main-container">
         <Route exact path='/' render={() => {
           return(
             <div>
@@ -70,7 +69,6 @@ const App = () => {
             <QuestionContainer question={foundQuestion} currentIndex={index}/>
             )
         }}/>
-      </section>
     </main>
   );
 }
